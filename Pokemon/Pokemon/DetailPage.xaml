@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Pokemon.DetailPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Pokemon Name"  FontSize="Medium" />
+            <Label Text="{Binding Name}"  FontSize="Medium"/>
+            <Label Text="Pokemon Weight" FontSize="Medium"  />
+            <Label Text="{Binding Weight}" FontSize="Medium" />
+
+            <Image Source="{Binding Path= Sprites.Front_default}" WidthRequest="50" />
+            <Label Text="{Binding Path=Sprites.Front_default}" FontSize="Small" />
+
+            <Image Source="{Binding Path=Sprites.Back_default}" />
+            <Label Text="{Binding Path=Sprites.Back_default}" FontSize="Small" />
+       
+
+            <Label Text="Abilities:" FontSize="Medium" />
+            <StackLayout Margin="20">
+                <ListView ItemsSource="{Binding Path=Abilities}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding Path=Ability.Name}" FontSize="Subtitle" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PokemonExplorer.MainPage">
+    <StackLayout>
+    <Label Text="{Binding Path= Message}" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Button Text="GetData" Clicked="Get_Data"/>
+        <ListView x:Name="MyListView"
+            ItemsSource="{Binding Pokemons}"
+            ItemTapped="Handle_ItemTapped">
+        
+        <!--Built in Cells-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="5,0,5,0" HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                            <Image Source="{Binding Sprites.Back_default}" WidthRequest="50" HeightRequest="50"  />
+                        <Label Text="{Binding Name}" VerticalTextAlignment="Center" FontSize="Small" />
+                            <Label Text="{Binding Sprites.Front_default}" VerticalTextAlignment="Center" FontSize="Micro" />
+
+                        </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
+</ContentPage>
